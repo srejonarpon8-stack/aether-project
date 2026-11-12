@@ -1,0 +1,83 @@
+.services__title { margin-top: 2rem; }
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.service-wrap { perspective: 1100px; }
+
+.service {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4rem;
+  min-height: 31rem;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: border-color 0.5s var(--ease-out);
+}
+.service:hover { border-color: var(--line-strong); }
+
+/* Light that follows the pointer */
+.service::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.07), transparent 60%);
+}
+.service:hover::after { opacity: 1; }
+
+.service__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  transform-style: preserve-3d;
+}
+.service__n { font: 500 0.75rem var(--font-mono); letter-spacing: 0.14em; color: var(--muted); }
+
+.glyph {
+  width: 7rem;
+  height: 7rem;
+  color: var(--silver);
+  transform: translateZ(70px);
+  overflow: visible;
+}
+.glyph * { transition: transform 0.9s var(--ease-out); transform-box: fill-box; transform-origin: center; }
+.service:hover .g1 { transform: translate(-3px, 3px); }
+.service:hover .g2 { transform: translate(3px, -3px); }
+.service:hover .g3 { transform: rotate(60deg); }
+
+.service__body { transform: translateZ(36px); }
+.service__name {
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.service__tag { margin-top: 0.6rem; font-size: 1.5rem; color: var(--muted); }
+.service__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin: 1.75rem 0 1.25rem;
+  font: 500 0.72rem var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.service__list li::before { content: '+ '; color: var(--silver); }
+
+@media (max-width: 800px) {
+  .services__grid { grid-template-columns: 1fr; }
+  .service { min-height: 26rem; }
+}

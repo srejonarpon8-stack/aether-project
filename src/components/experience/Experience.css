@@ -1,0 +1,97 @@
+.xp {
+  position: relative;
+  height: 380vh;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+}
+
+.xp__stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+.xp__canvas { position: absolute; inset: 0; }
+
+.xp__loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font: 500 0.75rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.xp__ui {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6rem var(--gutter) 2rem;
+  pointer-events: none;
+}
+.xp__ui button { pointer-events: auto; }
+
+.xp__title {
+  margin-top: 1.25rem;
+  font-size: clamp(2.6rem, 8vw, 7.5rem);
+  font-weight: 600;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  text-shadow: 0 0 40px rgba(5, 5, 6, 0.8);
+}
+.xp__title em { font-size: 1.08em; }
+
+.xp__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.xp__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  max-width: 22rem;
+  min-height: 3.5rem;
+  font-size: 1.1rem;
+  color: var(--muted);
+}
+.xp__caption strong { font-size: 1.6rem; font-weight: 600; letter-spacing: -0.03em; color: var(--silver); }
+
+.xp__controls { display: flex; flex-direction: column; align-items: flex-end; gap: 0.9rem; }
+.xp__objects { display: flex; gap: 0.5rem; }
+
+.xp__chip {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(5, 5, 6, 0.5);
+  cursor: pointer;
+  font: 500 0.7rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: background 0.3s, color 0.3s;
+}
+.xp__chip:hover { background: rgba(255, 255, 255, 0.1); }
+.xp__chip[aria-pressed='true'] { background: var(--silver); color: var(--bg); }
+
+.xp__hint {
+  font: 500 0.7rem var(--font-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.xp__progress { display: block; width: 12rem; height: 1px; background: var(--line); }
+.xp__progress i { display: block; height: 100%; background: var(--silver); transform: scaleX(0); transform-origin: left; }
+
+@media (max-width: 700px) {
+  .xp__bottom { flex-direction: column; align-items: flex-start; }
+  .xp__controls { align-items: flex-start; width: 100%; }
+  .xp__hint { max-width: 18rem; }
+}
