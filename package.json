@@ -1,0 +1,27 @@
+{
+  "name": "aether",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/inter-tight": "^5.1.0",
+    "@fontsource-variable/jetbrains-mono": "^5.1.0",
+    "@fontsource/instrument-serif": "^5.1.0",
+    "@react-three/drei": "^10.0.0",
+    "@react-three/fiber": "^9.0.0",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.18",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.0"
+  }
+}
